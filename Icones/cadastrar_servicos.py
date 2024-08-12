@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Cadastrar_Servicos(object):
+class Ui_cadastrar_servicos(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(572, 425)
@@ -156,14 +156,14 @@ class Ui_Cadastrar_Servicos(object):
         self.label_12.setText(_translate("Dialog", "Nome"))
         self.label_5.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
         self.label_6.setText(_translate("Dialog", "Preço"))
-from Icones import Icone_Servico
+import icone_servico
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
-    ui = Ui_Cadastrar_Servicos()
+    ui = Ui_cadastrar_servicos()
     ui.setupUi(Dialog)
     Dialog.show()
     sys.exit(app.exec_())

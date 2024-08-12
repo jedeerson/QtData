@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Cadastrar_Itens(object):
+class Ui_cadastrar_itens(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(571, 430)
@@ -157,14 +157,14 @@ class Ui_Cadastrar_Itens(object):
         self.label_4.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
         self.label_5.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
         self.label_6.setText(_translate("Dialog", "Quantidade"))
-from Icones import Icone_Item
+import icone_item
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
-    ui = Ui_Cadastrar_Itens()
+    ui = Ui_cadastrar_itens()
     ui.setupUi(Dialog)
     Dialog.show()
     sys.exit(app.exec_())

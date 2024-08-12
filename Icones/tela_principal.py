@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Tela_Principal(object):
+class Ui_tela_principal(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 560)
@@ -265,7 +265,7 @@ class Ui_Tela_Principal(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow")) 
         self.menuCadastros.setTitle(_translate("MainWindow", "Cadastros"))
         self.menuFianceiro.setTitle(_translate("MainWindow", "Fianceiro"))
         self.menuEstoque.setTitle(_translate("MainWindow", "Estoque"))
@@ -311,14 +311,14 @@ class Ui_Tela_Principal(object):
         self.actionGastos.setToolTip(_translate("MainWindow", "Relatório de Gastos"))
         self.actionLucro.setText(_translate("MainWindow", "Lucro"))
         self.actionLucro.setToolTip(_translate("MainWindow", "Relatório de Lucro"))
-from Icones import Icones
+import icones
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_Tela_Principal()
+    ui = Ui_tela_principal()
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())

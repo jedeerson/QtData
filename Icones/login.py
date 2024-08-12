@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Tela_Login(object):
+class Ui_tela_login(object):
     def setupUi(self, Tela_Login):
         Tela_Login.setObjectName("Tela_Login")
         Tela_Login.resize(408, 478)
@@ -143,14 +143,14 @@ class Ui_Tela_Login(object):
         self.Erro_senha.setText(_translate("Tela_Login", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600; color:#ffffff;\">Esqueceu a Senha?</span></p></body></html>"))
         self.Btn_Entrar.setText(_translate("Tela_Login", "Entrar"))
         self.Btn_Sair.setText(_translate("Tela_Login", "Sair"))
-from Icones import Icone_Login
+import icone_login
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Tela_Login = QtWidgets.QWidget()
-    ui = Ui_Tela_Login()
+    ui = Ui_tela_login()
     ui.setupUi(Tela_Login)
     Tela_Login.show()
     sys.exit(app.exec_())

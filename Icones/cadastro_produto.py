@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Cadastrar_Produto(object):
+class Ui_cadastrar_produto(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(572, 431)
@@ -174,14 +174,14 @@ class Ui_Cadastrar_Produto(object):
         self.label_5.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
         self.label_2.setText(_translate("Dialog", "<html><head/><body><p align=\"center\">Cadastrar Produtos no Sistema</p></body></html>"))
         self.btn_Limpar_Usuario.setText(_translate("Dialog", "Limpar"))
-from Icones import Icone_Produtos
+import icone_produtos
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
-    ui = Ui_Cadastrar_Produto()
+    ui = Ui_cadastrar_produto()
     ui.setupUi(Dialog)
     Dialog.show()
     sys.exit(app.exec_())

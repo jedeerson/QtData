@@ -11,7 +11,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 
 
-class Ui_Cadastrar_Colaboradores(object):
+class Ui_cadastrar_colaboradores(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
         Dialog.resize(571, 430)
@@ -216,14 +216,14 @@ class Ui_Cadastrar_Colaboradores(object):
         self.btn_Cancelar_Usuario.setText(_translate("Dialog", "Cancelar"))
         self.btn_Limpar_Usuario.setText(_translate("Dialog", "Limpar"))
         self.btn_Cadastro_Usuario.setText(_translate("Dialog", "Cadastrar"))
-from Icones import Icone_Colaboradores
+import icone_colaboradores
 
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Dialog = QtWidgets.QDialog()
-    ui = Ui_Cadastrar_Colaboradores()
+    ui = Ui_cadastrar_colaboradores()
     ui.setupUi(Dialog)
     Dialog.show()
     sys.exit(app.exec_())
