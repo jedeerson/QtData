@@ -1,0 +1,49 @@
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton
+from PyQt5.Qt import Qt
+from PyQt5.QtCore import pyqtSlot
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import *
+from PyQt5.QtGui import QIcon, QPixmap
+from PyQt5.QtPrintSupport import *
+import os,sys
+
+
+from templates.tela_principal import Ui_tela_principal
+from modulos.cdt_clientes import cadastrarclientes
+from modulos.cdt_colaboradores import cadastrarcolaboradores
+from modulos.cdt_produtos import cadastrarprodutos
+from modulos.cdt_servicos import cadastrarservicos
+from modulos.cdt_fornecedores import cadastrarfornecedores
+
+
+class telaprincipal(QMainWindow):
+	def __init__(self,*args,**argvs):
+		super(telaprincipal,self).__init__(*args,**argvs)
+		self.ui = Ui_tela_principal()
+		self.ui.setupUi(self)
+		self.ui.actionPessoas_4.triggered.connect(self.clientes)
+		self.ui.actionColaboradores_2.triggered.connect(self.coloboradores)	
+		self.ui.actionProdutos_4.triggered.connect(self.produtos)
+		self.ui.actionServi_os_6.triggered.connect(self.servicos)
+		self.ui.actionFornecedor.triggered.connect(self.fornecedores)
+
+
+	def clientes(self):
+		self.window = cadastrarclientes()
+		self.window.show()
+
+	def coloboradores(self):
+		self.window = cadastrarcolaboradores()
+		self.window.show()	
+
+	def produtos(self):
+		self.window = cadastrarprodutos()
+		self.window.show()
+
+	def servicos(self):
+		self.window = cadastrarservicos()
+		self.window.show()	
+
+	def fornecedores(self):
+		self.window = cadastrarfornecedores()
+		self.window.show()	
