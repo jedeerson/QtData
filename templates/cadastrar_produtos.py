@@ -295,7 +295,7 @@ class Ui_cadastrar_produtos(object):
         self.btn_excluir_produtos.setText(_translate("Dialog", "Excluir"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_lista_de_produtos), _translate("Dialog", "Lista de Produtos"))
         self.tabWidget.setTabToolTip(self.tabWidget.indexOf(self.tab_lista_de_produtos), _translate("Dialog", "Lista de Produtos Cadastrado no Sistema"))
-from img import icone_produtos
+from icones import icone_produtos
 
 
 if __name__ == "__main__":

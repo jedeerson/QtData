@@ -389,7 +389,7 @@ class Ui_cadastrar_colaboradores(object):
         self.btn_excluir_usuarios.setText(_translate("Dialog", "Excluir"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_cadastro_colaboradores), _translate("Dialog", "Lista de Colaboradores"))
         self.tabWidget.setTabToolTip(self.tabWidget.indexOf(self.tab_cadastro_colaboradores), _translate("Dialog", "Listas de Colaboradores no Sistema"))
-from img import icone_colaboradores
+from icones import icone_colaboradores
 
 
 if __name__ == "__main__":

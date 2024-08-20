@@ -293,7 +293,7 @@ class Ui_cadastrar_servicos(object):
         self.btn_excluir_servicos.setText(_translate("Dialog", "Excluir"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_lista_de_servicos), _translate("Dialog", "Lista de Serviços"))
         self.tabWidget.setTabToolTip(self.tabWidget.indexOf(self.tab_lista_de_servicos), _translate("Dialog", "Lista de Serviços no Sistema"))
-from img import icone_servico
+from icones import icone_servico
 
 
 if __name__ == "__main__":

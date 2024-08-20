@@ -484,7 +484,7 @@ class Ui_cadastrar_clientes(object):
         self.btn_excluir.setText(_translate("Dialog", "Excluir"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_lista_de_clientes), _translate("Dialog", "Lista de Clientes"))
         self.tabWidget.setTabToolTip(self.tabWidget.indexOf(self.tab_lista_de_clientes), _translate("Dialog", "Lista de Clientes Cadastrado no Sistema"))
-from img import icone_cliente
+from icones import icone_cliente
 
 
 if __name__ == "__main__":

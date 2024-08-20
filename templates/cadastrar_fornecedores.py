@@ -441,7 +441,7 @@ class Ui_cadastrar_fornecedores(object):
         self.label_10.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Lista de Fornecedores</span></p></body></html>"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_lista_fornecedores), _translate("Dialog", "Lista de Fornecedores"))
         self.tabWidget.setTabToolTip(self.tabWidget.indexOf(self.tab_lista_fornecedores), _translate("Dialog", "Lista de Itens Fornecedores no Sistema"))
-from img import icone_item
+from icones import icone_item
 
 
 if __name__ == "__main__":

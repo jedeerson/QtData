@@ -319,7 +319,7 @@ class Ui_tela_principal(object):
         self.actionGastos.setToolTip(_translate("MainWindow", "Relatório de Gastos"))
         self.actionLucro.setText(_translate("MainWindow", "Lucro"))
         self.actionLucro.setToolTip(_translate("MainWindow", "Relatório de Lucro"))
-from img import icones
+from icones import icones
 
 
 if __name__ == "__main__":

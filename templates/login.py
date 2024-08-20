@@ -145,7 +145,7 @@ class Ui_tela_login(object):
         self.Btn_Entrar.setText(_translate("Tela_Login", "Entrar"))
         self.Btn_Sair.setText(_translate("Tela_Login", "Sair"))
         self.Erro_senha.setText(_translate("Tela_Login", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600; color:#ffffff;\">Esqueceu a Senha?</span></p></body></html>"))
-from img import icone_login
+from icones import icone_login
 
 
 if __name__ == "__main__":
