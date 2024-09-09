@@ -11,6 +11,7 @@ import os,sys
 
 from templates.login import Ui_tela_login
 from modulos.principal import telaprincipal
+from db.query import sqlite_db
 
 
 class login(QDialog):
@@ -22,19 +23,21 @@ class login(QDialog):
 		#self.ui.Btn_Sair.clicked.connect(self.login)
 
 	def login(self):
-		admin ="admin"
-		senha ="admin"
+		db = sqlite_db("colaboradores.db")
 
-		user = self.ui.txt_ID.text()
-		passwd = self.ui.txt_senha.text() 
-
-		if admin == user and passwd ==senha:
-			QMessageBox.information(QMessageBox(), "Login Realizado!", "Entrou com sucesso!")
-			self.window = telaprincipal()
-			self.window.show()
+		Login = self.ui.txt_ID.text()
+		Senha = self.ui.txt_senha.text() 
+		if Login ==" " or Senha==" ":
+			QMessageBox.warning(QMessageBox(), "Alerta!", "Preencha todos os campos!")
 		else:
-			QMessageBox.warning(QMessageBox(), "Login Errado!", "Não Entrou com sucesso!")
-	
+			dados = db.pegar_dados("SELECT Acesso FROM colaboradores WHERE Login = '{}' and Senha ='{}'" .format(Login,Senha))
+			if dados:
+				QMessageBox.information(QMessageBox(),"Login realizado!", "ENTROU COM SUCESSO!")
+				self.window = telaprincipal()
+				self.window.show()
+			else:
+				QMessageBox.warning(QMessageBox(), "Login Errado!", "NÃO ENTROU COM SUCESSO!")
+		
 		login.hide(self)
 
 

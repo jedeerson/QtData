@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_tela_login(object):
     def setupUi(self, Tela_Login):
         Tela_Login.setObjectName("Tela_Login")
-        Tela_Login.resize(407, 576)
+        Tela_Login.resize(407, 577)
         self.Container1 = QtWidgets.QFrame(Tela_Login)
         self.Container1.setEnabled(True)
         self.Container1.setGeometry(QtCore.QRect(10, -1, 391, 491))
@@ -60,7 +60,7 @@ class Ui_tela_login(object):
         self.Icone_Senha.setText("")
         self.Icone_Senha.setObjectName("Icone_Senha")
         self.Titulo = QtWidgets.QLabel(self.Container1)
-        self.Titulo.setGeometry(QtCore.QRect(80, 100, 231, 151))
+        self.Titulo.setGeometry(QtCore.QRect(50, 80, 291, 191))
         self.Titulo.setObjectName("Titulo")
         self.Btn_Entrar = QtWidgets.QPushButton(self.Container1)
         self.Btn_Entrar.setGeometry(QtCore.QRect(100, 380, 81, 31))
@@ -141,7 +141,7 @@ class Ui_tela_login(object):
         self.txt_senha.setPlaceholderText(_translate("Tela_Login", "Senha"))
         self.Titulo.setToolTip(_translate("Tela_Login", "<html><head/><body><p><span style=\" font-size:16pt; font-weight:600;\">Login de Usuário</span></p></body></html>"))
         self.Titulo.setWhatsThis(_translate("Tela_Login", "<html><head/><body><p><span style=\" font-size:14pt; font-weight:600;\">Login de Usuário</span></p></body></html>"))
-        self.Titulo.setText(_translate("Tela_Login", "<html><head/><body><p><span style=\" font-size:20pt; font-weight:600; color:#ffffff;\">Login de Usuário</span></p></body></html>"))
+        self.Titulo.setText(_translate("Tela_Login", "<html><head/><body><p align=\"center\"><span style=\" font-size:22pt; font-weight:600; color:#ffffff;\">Login de Usuário</span></p></body></html>"))
         self.Btn_Entrar.setText(_translate("Tela_Login", "Entrar"))
         self.Btn_Sair.setText(_translate("Tela_Login", "Sair"))
         self.Erro_senha.setText(_translate("Tela_Login", "<html><head/><body><p><span style=\" font-size:10pt; font-weight:600; color:#ffffff;\">Esqueceu a Senha?</span></p></body></html>"))

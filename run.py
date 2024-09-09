@@ -7,4 +7,4 @@ app = QApplication(sys.argv)
 if (QDialog.Accepted == True):
 	window = login()
 	window.show()
-sys.exit(app.exec_())
+sys.exit(app.exec_()) 
