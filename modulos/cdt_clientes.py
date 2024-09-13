@@ -18,6 +18,7 @@ class cadastrarclientes(QDialog):
 		self.ui.btn_Cadastro_Cliente.clicked.connect(self.add)
 		self.ui.btn_Cancelar_Cliente.clicked.connect(self.can)
 		self.ui.btn_Cadastrar_Cliente.clicked.connect(self.limpa)
+		self.carregadados_clientes()
 
 	def add(self):
 		db = sqlite_db("clientes.db")
@@ -38,9 +39,8 @@ class cadastrarclientes(QDialog):
 			QMessageBox.information(QMessageBox(), "AVISO", "DADOS GRAVADOS COM SUCESSO!")
 
 
-
 	def can(self):
-		pass
+		self.close()
 
 
 	def limpa(self):
@@ -51,3 +51,14 @@ class cadastrarclientes(QDialog):
 		self.ui.Nascimento.setText("")
 		self.ui.Telefone_Cliente.setText("")
 		self.ui.Email_Cliente.setText("")
+
+
+	def carregadados_clientes(self):
+		db = sqlite_db("clientes.db")
+		lista = db.pegar_dados("SELECT * FROM clientes")
+		
+		self.ui.tableWidget.setRowCount(0)
+		for linha, dados in enumerate(lista):
+			self.ui.tableWidget.insertRow(linha)
+			for coluna_clientes, dados in enumerate(dados):
+				self.ui.tableWidget.setItem(linha,coluna_clientes,QTableWidgetItem(str(dados)))

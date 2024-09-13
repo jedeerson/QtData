@@ -19,7 +19,8 @@ class cadastrarcolaboradores(QDialog):
         self.ui.setupUi(self)
         self.ui.btn_cadastro_usuario.clicked.connect(self.add)  
         self.ui.btn_cancelar_usuario.clicked.connect(self.can)
-        self.ui.btn_limpar_usuario.clicked.connect(self.limpar)  
+        self.ui.btn_limpar_usuario.clicked.connect(self.limpar) 
+        self.carregadados_colaboradores() 
 
 
     def add(self):
@@ -43,7 +44,7 @@ class cadastrarcolaboradores(QDialog):
 
 
     def can(self):
-        pass
+        self.close()
 
 
     def limpar(self):
@@ -56,3 +57,14 @@ class cadastrarcolaboradores(QDialog):
        self.ui.login_usuario.setText("")
        self.ui.senha_usuario.setText("")
        admin = 1
+
+
+    def carregadados_colaboradores(self):
+            db = sqlite_db("colaboradores.db")
+            lista = db.pegar_dados("SELECT * FROM colaboradores")
+            
+            self.ui.tableWidget.setRowCount(0)
+            for linha, dados in enumerate(lista):
+                self.ui.tableWidget.insertRow(linha)
+                for coluna_colaboradores, dados in enumerate(dados):
+                    self.ui.tableWidget.setItem(linha,coluna_colaboradores,QTableWidgetItem(str(dados)))

@@ -18,6 +18,7 @@ class cadastrarservicos(QDialog):
         self.ui.btn_Cadastro_Servico.clicked.connect(self.add)
         self.ui.btn_Cancelar_Servico.clicked.connect(self.can)
         self.ui.btn_Limpar_Usuario.clicked.connect(self.limpar)
+        self.carregadados_servicos()
 
 
     def add(self):
@@ -35,12 +36,23 @@ class cadastrarservicos(QDialog):
 
 
     def can(self):
-        pass
+        self.close()
 
 
     def limpar(self):
         self.ui.Nome_Servico.setText("")
         self.ui.Preco_Servico.setText("")
         self.ui.OBS_Servico.setText("")    
+
+
+    def carregadados_servicos(self):
+            db = sqlite_db("servicos.db")
+            lista = db.pegar_dados("SELECT * FROM servicos")
+            
+            self.ui.tableWidget.setRowCount(0)
+            for linha, dados in enumerate(lista):
+                self.ui.tableWidget.insertRow(linha)
+                for coluna_servicos, dados in enumerate(dados):
+                    self.ui.tableWidget.setItem(linha,coluna_servicos,QTableWidgetItem(str(dados)))        
 
 

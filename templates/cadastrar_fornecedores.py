@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'Cadastrar_fornecedores.ui'
+# Form implementation generated from reading ui file 'Cadastrar_Item.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.11
 #
@@ -395,12 +395,27 @@ class Ui_cadastrar_fornecedores(object):
         self.retranslateUi(Dialog)
         self.tabWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
+        Dialog.setTabOrder(self.tabWidget, self.nome_fantasia)
+        Dialog.setTabOrder(self.nome_fantasia, self.cpf_cnpj_fornecedores)
+        Dialog.setTabOrder(self.cpf_cnpj_fornecedores, self.razao_social)
+        Dialog.setTabOrder(self.razao_social, self.endereco_fornecedores)
+        Dialog.setTabOrder(self.endereco_fornecedores, self.inscricao_estadual)
+        Dialog.setTabOrder(self.inscricao_estadual, self.telefone_fornecedores)
+        Dialog.setTabOrder(self.telefone_fornecedores, self.email_fornecedores)
+        Dialog.setTabOrder(self.email_fornecedores, self.tipo_de_fornecedores)
+        Dialog.setTabOrder(self.tipo_de_fornecedores, self.comboBox)
+        Dialog.setTabOrder(self.comboBox, self.btn_cadastro_fornecedores)
+        Dialog.setTabOrder(self.btn_cadastro_fornecedores, self.btn_cancelar_fornecedores)
+        Dialog.setTabOrder(self.btn_cancelar_fornecedores, self.btn_cadastrar_fornecedor)
+        Dialog.setTabOrder(self.btn_cadastrar_fornecedor, self.tableWidget)
+        Dialog.setTabOrder(self.tableWidget, self.btn_alterar_fornecedores)
+        Dialog.setTabOrder(self.btn_alterar_fornecedores, self.btn_excluir_fornecedor)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
         Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
         self.label_9.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
-        self.label_2.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600;\">Cadastrar Fornecedor</span></p></body></html>"))
+        self.label_2.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:600;\">Cadastrar Fornecedor</span></p></body></html>"))
         self.label_5.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
         self.label_3.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
         self.label_4.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
@@ -438,9 +453,9 @@ class Ui_cadastrar_fornecedores(object):
         item.setText(_translate("Dialog", "Tipo de Fornecedor"))
         self.btn_alterar_fornecedores.setText(_translate("Dialog", "Alterar"))
         self.btn_excluir_fornecedor.setText(_translate("Dialog", "Excluir"))
-        self.label_10.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Lista de Fornecedores</span></p></body></html>"))
+        self.label_10.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:600;\">Lista de Fornecedores</span></p></body></html>"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_lista_fornecedores), _translate("Dialog", "Lista de Fornecedores"))
-        self.tabWidget.setTabToolTip(self.tabWidget.indexOf(self.tab_lista_fornecedores), _translate("Dialog", "Lista de Fornecedores no Sistema"))
+        self.tabWidget.setTabToolTip(self.tabWidget.indexOf(self.tab_lista_fornecedores), _translate("Dialog", "Lista de Itens Fornecedores no Sistema"))
 from icones import icone_item
 
 

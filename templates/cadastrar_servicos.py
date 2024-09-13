@@ -265,6 +265,15 @@ class Ui_cadastrar_servicos(object):
         self.retranslateUi(Dialog)
         self.tabWidget.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
+        Dialog.setTabOrder(self.tabWidget, self.Nome_Servico)
+        Dialog.setTabOrder(self.Nome_Servico, self.Preco_Servico)
+        Dialog.setTabOrder(self.Preco_Servico, self.OBS_Servico)
+        Dialog.setTabOrder(self.OBS_Servico, self.btn_Cadastro_Servico)
+        Dialog.setTabOrder(self.btn_Cadastro_Servico, self.btn_Cancelar_Servico)
+        Dialog.setTabOrder(self.btn_Cancelar_Servico, self.btn_Limpar_Usuario)
+        Dialog.setTabOrder(self.btn_Limpar_Usuario, self.tableWidget)
+        Dialog.setTabOrder(self.tableWidget, self.btn_alterar_servicos)
+        Dialog.setTabOrder(self.btn_alterar_servicos, self.btn_excluir_servicos)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
@@ -273,7 +282,7 @@ class Ui_cadastrar_servicos(object):
         self.btn_Cadastro_Servico.setText(_translate("Dialog", "Cadastrar"))
         self.label_4.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
         self.label_3.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
-        self.label_2.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600;\">Cadastrar Serviços no Sistema</span></p></body></html>"))
+        self.label_2.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:600;\">Cadastrar Serviços no Sistema</span></p></body></html>"))
         self.label_9.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
         self.label_8.setText(_translate("Dialog", "<html><head/><body><p><span style=\" font-size:12pt;\">Observação</span></p></body></html>"))
         self.btn_Limpar_Usuario.setText(_translate("Dialog", "Limpar"))
@@ -288,7 +297,7 @@ class Ui_cadastrar_servicos(object):
         item.setText(_translate("Dialog", "Preços"))
         item = self.tableWidget.horizontalHeaderItem(2)
         item.setText(_translate("Dialog", "Observação"))
-        self.label_7.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Lista de Serviços</span></p></body></html>"))
+        self.label_7.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:600;\">Lista de Serviços</span></p></body></html>"))
         self.btn_alterar_servicos.setText(_translate("Dialog", "Alterar"))
         self.btn_excluir_servicos.setText(_translate("Dialog", "Excluir"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_lista_de_servicos), _translate("Dialog", "Lista de Serviços"))

@@ -18,6 +18,7 @@ class cadastrarfornecedores(QDialog):
         self.ui.btn_cadastro_fornecedores.clicked.connect(self.add)
         self.ui.btn_cancelar_fornecedores.clicked.connect(self.can)
         self.ui.btn_cadastrar_fornecedor.clicked.connect(self.limpar)
+        self.carregadados_fornecedores()
     
     def add(self):
         db = sqlite_db("fornecedores.db")
@@ -39,7 +40,7 @@ class cadastrarfornecedores(QDialog):
 
 
     def can(self):
-        pass
+        self.close()
 
 
     def limpar(self):
@@ -51,3 +52,14 @@ class cadastrarfornecedores(QDialog):
         self.ui.telefone_fornecedores.setText("")
         self.ui.email_fornecedores.setText("")
         self.ui.tipo_de_fornecedores.setText("")
+
+
+    def carregadados_fornecedores(self):
+            db = sqlite_db("fornecedores.db")
+            lista = db.pegar_dados("SELECT * FROM fornecedores")
+            
+            self.ui.tableWidget.setRowCount(0)
+            for linha, dados in enumerate(lista):
+                self.ui.tableWidget.insertRow(linha)
+                for coluna_fornecedores, dados in enumerate(dados):
+                    self.ui.tableWidget.setItem(linha,coluna_fornecedores,QTableWidgetItem(str(dados)))
