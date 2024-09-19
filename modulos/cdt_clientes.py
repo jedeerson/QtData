@@ -15,21 +15,22 @@ class cadastrarclientes(QDialog):
 		super(cadastrarclientes,self).__init__(*args,**argvs)
 		self.ui = Ui_cadastrar_clientes()
 		self.ui.setupUi(self)
-		self.ui.btn_Cadastro_Cliente.clicked.connect(self.add)
-		self.ui.btn_Cancelar_Cliente.clicked.connect(self.can)
-		self.ui.btn_Cadastrar_Cliente.clicked.connect(self.limpa)
+		self.ui.btn_cadastro_cliente.clicked.connect(self.add)
+		self.ui.btn_cancelar_cliente.clicked.connect(self.can)
+		self.ui.btn_cadastrar_cliente.clicked.connect(self.limpa)
 		self.carregadados_clientes()
+		self.ui.refresh.mousePressEvent = self.on_refresh_click
 
 	def add(self):
 		db = sqlite_db("clientes.db")
 
-		name = self.ui.Nome_Cliente.text()
-		doc = self.ui.CPF_Cliente.text()
-		ape = self.ui.Apelido_Ciente.text()
-		end = self.ui.Endereo_Cliente.text()
-		nas = self.ui.Nascimento.text()
-		tel = self.ui.Telefone_Cliente.text()
-		ema = self.ui.Email_Cliente.text()
+		name = self.ui.nome_cliente.text()
+		doc = self.ui.cpf_cliente.text()
+		ape = self.ui.apelido_ciente.text()
+		end = self.ui.endereco_cliente.text()
+		nas = self.ui.nascimento.text()
+		tel = self.ui.telefone_cliente.text()
+		ema = self.ui.email_cliente.text()
 
 
 		if name == "" or doc == "" or ape == "" or end == "" or nas == "" or tel == "" or ema == "":
@@ -44,21 +45,26 @@ class cadastrarclientes(QDialog):
 
 
 	def limpa(self):
-		self.ui.Nome_Cliente.setText("")
-		self.ui.CPF_Cliente.setText("")
-		self.ui.Apelido_Ciente.setText("")
-		self.ui.Endereo_Cliente.setText("")
-		self.ui.Nascimento.setText("")
-		self.ui.Telefone_Cliente.setText("")
-		self.ui.Email_Cliente.setText("")
+		self.ui.nome_cliente.setText("")
+		self.ui.cpf_cliente.setText("")
+		self.ui.apelido_ciente.setText("")
+		self.ui.endereco_cliente.setText("")
+		self.ui.nascimento.setText("")
+		self.ui.telefone_cliente.setText("")
+		self.ui.email_cliente.setText("")
 
 
 	def carregadados_clientes(self):
 		db = sqlite_db("clientes.db")
 		lista = db.pegar_dados("SELECT * FROM clientes")
 		
-		self.ui.tableWidget.setRowCount(0)
+		self.ui.tableWidget_3.setRowCount(0)
 		for linha, dados in enumerate(lista):
-			self.ui.tableWidget.insertRow(linha)
+			self.ui.tableWidget_3.insertRow(linha)
 			for coluna_clientes, dados in enumerate(dados):
-				self.ui.tableWidget.setItem(linha,coluna_clientes,QTableWidgetItem(str(dados)))
+				self.ui.tableWidget_3.setItem(linha,coluna_clientes,QTableWidgetItem(str(dados)))
+
+	def on_refresh_click(self, event):	
+		if event.button() == Qt.LeftButton:
+			self.carregadados_clientes()			
+				

@@ -16,16 +16,21 @@ from modulos.cdt_servicos import cadastrarservicos
 from modulos.cdt_fornecedores import cadastrarfornecedores
 
 
+
 class telaprincipal(QMainWindow):
-	def __init__(self,*args,**argvs):
+	def __init__(self,telalogin,logado,*args,**argvs):
 		super(telaprincipal,self).__init__(*args,**argvs)
 		self.ui = Ui_tela_principal()
 		self.ui.setupUi(self)
+		self.telalogin = telalogin
 		self.ui.actionPessoas_4.triggered.connect(self.clientes)
 		self.ui.actionColaboradores_2.triggered.connect(self.coloboradores)	
 		self.ui.actionProdutos_4.triggered.connect(self.produtos)
 		self.ui.actionServi_os_6.triggered.connect(self.servicos)
 		self.ui.actionFornecedor.triggered.connect(self.fornecedores)
+		self.userlogado = logado
+		self.ui.logado.setText(self.userlogado)
+
 
 
 	def clientes(self):
@@ -47,3 +52,15 @@ class telaprincipal(QMainWindow):
 	def fornecedores(self):
 		self.window = cadastrarfornecedores()
 		self.window.show()	
+
+	def closeEvent(self, event):
+			reply = QMessageBox.question(self, 'Alerta!',
+										"Tem certeza que deseja sair?", QMessageBox.Yes |
+										QMessageBox.No, QMessageBox.No)
+			if reply == QMessageBox.Yes:
+				event.accept()
+				self.telalogin.show()
+				self.clearMask()
+				self.destroy()
+			else:
+				event.ignore()

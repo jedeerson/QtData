@@ -21,18 +21,13 @@ class sqlite_db:
             print("Não foi possivel estabelecer conexão!")
 
 
-    # def criar_tabelas(self): #Criar tabelas
-    #     cur = self.cursor
-    #     cur.execute("""CREATE TABLE fornecedores(
-    #         ID integer primary key autoincrement,
-    #         Nome_Fantasia text NOT NULL,
-    #         CPF_CNPJ integer NOT NULL,
-    #         Razão_Social text NOT NULL,
-    #         Endereço text NOT NULL,
-    #         Inscricao_Estadual intege NOT NULL,
-    #         Telefone integer NOT NULL,
-    #         Email text,
-    #         Tipo_de_Fornecedor text)""") 
+    def criar_tabelas(self): #Criar tabelas
+        cur = self.cursor
+        cur.execute("""CREATE TABLE servicos(
+            ID integer primary key autoincrement,
+            Nome text NOT NULL,
+            Preço numeric NOT NULL,
+            Observação text NOT NULL)""") 
 
     def inserir_apagar_atualizar(self,query):
         cur = self.cursor
@@ -45,7 +40,7 @@ class sqlite_db:
         return cur.fetchall()   
 
 
-# db = sqlite_db("fornecedores.db")  #Criando nome das tabelas
+# db = sqlite_db("servicos.db")  #Criando nome das tabelas
 
 # db.inserir_apagar_atualizar("INSERT INTO colaboradores (Nome,CPF,Nascimento,Setor,CEP,Endereço,Login,Senha,Acesso) VALUES ('Jederson Remoeri', '09633195900', '22/06/1996', 'adm', '81925450', 'Desembargador Carlos Pinheiro Guimaraes', 'jeder', 'paocomovo', 'admin')")
 

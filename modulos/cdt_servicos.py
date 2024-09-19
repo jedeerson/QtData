@@ -22,7 +22,7 @@ class cadastrarservicos(QDialog):
 
 
     def add(self):
-        db = sqlite_db("serviços.db")
+        db = sqlite_db("servicos.db")
 
         name = self.ui.Nome_Servico.text()
         preco = self.ui.Preco_Servico.text()
@@ -31,7 +31,7 @@ class cadastrarservicos(QDialog):
         if name == "" or preco =="" or obs =="":
             QMessageBox.information(QMessageBox(), "AVISO", "PREENCHA TODOS OS CAMPOS!") 
         else:
-            db.inserir_apagar_atualizar("INSERT INTO serviços (Nome, Preço, Observação) VALUES ('{}', '{}', '{}') ".format(name,preco,obs)) 
+            db.inserir_apagar_atualizar("INSERT INTO servicos (Nome, Preço, Observação) VALUES ('{}', '{}', '{}') ".format(name,preco,obs)) 
             QMessageBox.information(QMessageBox(), "AVISO", "DADOS GRAVADOS COM SUCESSO!")
 
 

@@ -33,12 +33,13 @@ class login(QDialog):
 			dados = db.pegar_dados("SELECT Acesso FROM colaboradores WHERE Login = '{}' and Senha ='{}'" .format(Login,Senha))
 			if dados:
 				QMessageBox.information(QMessageBox(),"Login realizado!", "ENTROU COM SUCESSO!")
-				self.window = telaprincipal()
+				self.logado = Login
+				self.window = telaprincipal(self,self.logado)
 				self.window.show()
+				self.hide()
 			else:
 				QMessageBox.warning(QMessageBox(), "Login Errado!", "NÃO ENTROU COM SUCESSO!")
 		
-		login.hide(self)
 
 
 
