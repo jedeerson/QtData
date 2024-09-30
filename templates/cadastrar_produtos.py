@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_cadastrar_produtos(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(745, 526)
+        Dialog.resize(745, 527)
         font = QtGui.QFont()
         font.setPointSize(11)
         Dialog.setFont(font)
@@ -188,6 +188,9 @@ class Ui_cadastrar_produtos(object):
         self.label_3.setObjectName("label_3")
         self.tableWidget = QtWidgets.QTableWidget(self.tab_lista_de_produtos)
         self.tableWidget.setGeometry(QtCore.QRect(9, 40, 722, 351))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.tableWidget.setFont(font)
         self.tableWidget.setStyleSheet("background-color: rgb(176, 176, 176);")
         self.tableWidget.setObjectName("tableWidget")
         self.tableWidget.setColumnCount(4)
@@ -216,57 +219,35 @@ class Ui_cadastrar_produtos(object):
         font.setWeight(75)
         item.setFont(font)
         self.tableWidget.setHorizontalHeaderItem(3, item)
-        self.frame_botoes_produtos = QtWidgets.QFrame(self.tab_lista_de_produtos)
-        self.frame_botoes_produtos.setGeometry(QtCore.QRect(10, 390, 721, 101))
-        self.frame_botoes_produtos.setStyleSheet("background-color: rgb(121, 121, 121);")
-        self.frame_botoes_produtos.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_botoes_produtos.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_botoes_produtos.setObjectName("frame_botoes_produtos")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.frame_botoes_produtos)
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.btn_pesquisar_produtos = QtWidgets.QPushButton(self.frame_botoes_produtos)
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        self.btn_pesquisar_produtos.setFont(font)
-        self.btn_pesquisar_produtos.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btn_pesquisar_produtos.setStyleSheet("QPushButton{\n"
-"\n"
-"    background-color: rgb(216, 216, 216);\n"
-"    color: rgb(0, 0, 0);\n"
-"    alternate-background-color: rgb(255, 255, 255);\n"
-"    border-radius:10px;\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton::hover{\n"
-"    color: rgb(255, 255, 255);\n"
-"    background-color: rgb(0, 0, 0);\n"
-"}\n"
-"")
-        self.btn_pesquisar_produtos.setObjectName("btn_pesquisar_produtos")
-        self.verticalLayout.addWidget(self.btn_pesquisar_produtos)
-        self.btn_editar_produtos = QtWidgets.QPushButton(self.frame_botoes_produtos)
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        self.btn_editar_produtos.setFont(font)
-        self.btn_editar_produtos.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btn_editar_produtos.setStyleSheet("QPushButton{\n"
-"\n"
-"    background-color: rgb(216, 216, 216);\n"
-"    color: rgb(0, 0, 0);\n"
-"    alternate-background-color: rgb(255, 255, 255);\n"
-"    border-radius:10px;\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton::hover{\n"
-"    color: rgb(255, 255, 255);\n"
-"    background-color: rgb(0, 0, 0);\n"
-"}\n"
-"")
-        self.btn_editar_produtos.setObjectName("btn_editar_produtos")
-        self.verticalLayout.addWidget(self.btn_editar_produtos)
-        self.btn_excluir_produtos = QtWidgets.QPushButton(self.frame_botoes_produtos)
+        self.label_43 = QtWidgets.QLabel(self.tab_lista_de_produtos)
+        self.label_43.setGeometry(QtCore.QRect(730, 0, 9, 500))
+        self.label_43.setStyleSheet("background-color: rgb(255, 85, 0);\n"
+"font: 87 12pt \"Arial Black\";")
+        
+        self.tableWidget.setColumnWidth(1, 150)
+        self.tableWidget.setColumnWidth(2, 80)
+        self.tableWidget.setColumnWidth(3, 150)
+
+
+        self.label_43.setObjectName("label_43")
+        self.label_42 = QtWidgets.QLabel(self.tab_lista_de_produtos)
+        self.label_42.setGeometry(QtCore.QRect(0, 0, 9, 500))
+        self.label_42.setStyleSheet("background-color: rgb(255, 85, 0);\n"
+"font: 87 12pt \"Arial Black\";")
+        self.label_42.setObjectName("label_42")
+        self.refresh = QtWidgets.QLabel(self.tab_lista_de_produtos)
+        self.refresh.setGeometry(QtCore.QRect(698, 4, 41, 31))
+        self.refresh.setStyleSheet("background-color: rgb(255, 85, 0);\n"
+"image: url(:/Produtos/Img/botao-atualizar.png);")
+        self.refresh.setText("")
+        self.refresh.setObjectName("refresh")
+        self.frame = QtWidgets.QFrame(self.tab_lista_de_produtos)
+        self.frame.setGeometry(QtCore.QRect(10, 390, 721, 101))
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.btn_excluir_produtos = QtWidgets.QPushButton(self.frame)
+        self.btn_excluir_produtos.setGeometry(QtCore.QRect(10, 50, 702, 35))
         font = QtGui.QFont()
         font.setPointSize(11)
         self.btn_excluir_produtos.setFont(font)
@@ -286,29 +267,44 @@ class Ui_cadastrar_produtos(object):
 "}\n"
 "")
         self.btn_excluir_produtos.setObjectName("btn_excluir_produtos")
-        self.verticalLayout.addWidget(self.btn_excluir_produtos)
-        self.label_43 = QtWidgets.QLabel(self.tab_lista_de_produtos)
-        self.label_43.setGeometry(QtCore.QRect(730, 0, 9, 500))
-        self.label_43.setStyleSheet("background-color: rgb(255, 85, 0);\n"
+        self.btn_pesquisar_produtos = QtWidgets.QPushButton(self.frame)
+        self.btn_pesquisar_produtos.setGeometry(QtCore.QRect(366, 10, 345, 35))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.btn_pesquisar_produtos.setFont(font)
+        self.btn_pesquisar_produtos.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_pesquisar_produtos.setStyleSheet("QPushButton{\n"
+"\n"
+"    background-color: rgb(216, 216, 216);\n"
+"    color: rgb(0, 0, 0);\n"
+"    alternate-background-color: rgb(255, 255, 255);\n"
+"    border-radius:10px;\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton::hover{\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: rgb(0, 0, 0);\n"
+"}\n"
+"")
+        self.btn_pesquisar_produtos.setObjectName("btn_pesquisar_produtos")
+        self.label_46 = QtWidgets.QLabel(self.frame)
+        self.label_46.setGeometry(QtCore.QRect(2, 100, 738, 9))
+        self.label_46.setStyleSheet("background-color: rgb(255, 85, 0);\n"
 "font: 87 12pt \"Arial Black\";")
-        self.label_43.setObjectName("label_43")
-        self.label_42 = QtWidgets.QLabel(self.tab_lista_de_produtos)
-        self.label_42.setGeometry(QtCore.QRect(0, 0, 9, 500))
-        self.label_42.setStyleSheet("background-color: rgb(255, 85, 0);\n"
-"font: 87 12pt \"Arial Black\";")
-        self.label_42.setObjectName("label_42")
-        self.refresh = QtWidgets.QLabel(self.tab_lista_de_produtos)
-        self.refresh.setGeometry(QtCore.QRect(698, 4, 41, 31))
-        self.refresh.setStyleSheet("background-color: rgb(255, 85, 0);\n"
-"image: url(:/Produtos/Img/botao-atualizar.png);")
-        self.refresh.setText("")
-        self.refresh.setObjectName("refresh")
-        self.label_3.raise_()
-        self.frame_botoes_produtos.raise_()
-        self.tableWidget.raise_()
-        self.label_43.raise_()
-        self.label_42.raise_()
-        self.refresh.raise_()
+        self.label_46.setObjectName("label_46")
+        self.line_pesquisar_produtos = QtWidgets.QLineEdit(self.frame)
+        self.line_pesquisar_produtos.setGeometry(QtCore.QRect(10, 10, 345, 35))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.line_pesquisar_produtos.setFont(font)
+        self.line_pesquisar_produtos.setAutoFillBackground(False)
+        self.line_pesquisar_produtos.setStyleSheet("background-color: rgb(250, 250, 250);")
+        self.line_pesquisar_produtos.setAlignment(QtCore.Qt.AlignCenter)
+        self.line_pesquisar_produtos.setDragEnabled(False)
+        self.line_pesquisar_produtos.setReadOnly(False)
+        self.line_pesquisar_produtos.setClearButtonEnabled(False)
+        self.line_pesquisar_produtos.setObjectName("line_pesquisar_produtos")
         self.tabWidget.addTab(self.tab_lista_de_produtos, "")
         self.label_44 = QtWidgets.QLabel(Dialog)
         self.label_44.setGeometry(QtCore.QRect(2, 509, 738, 9))
@@ -326,13 +322,10 @@ class Ui_cadastrar_produtos(object):
         Dialog.setTabOrder(self.btn_cadastro_produtos, self.btn_cancelar_produtos)
         Dialog.setTabOrder(self.btn_cancelar_produtos, self.btn_limpar_produtos)
         Dialog.setTabOrder(self.btn_limpar_produtos, self.tableWidget)
-        Dialog.setTabOrder(self.tableWidget, self.btn_pesquisar_produtos)
-        Dialog.setTabOrder(self.btn_pesquisar_produtos, self.btn_editar_produtos)
-        Dialog.setTabOrder(self.btn_editar_produtos, self.btn_excluir_produtos)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Cadastrar Produtos", "Cadastrar Produtos"))
         self.btn_limpar_produtos.setText(_translate("Dialog", "Limpar"))
         self.btn_cadastro_produtos.setText(_translate("Dialog", "Cadastrar"))
         self.label_2.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:600;\">Cadastrar Produtos no Sistema</span></p></body></html>"))
@@ -354,11 +347,12 @@ class Ui_cadastrar_produtos(object):
         item.setText(_translate("Dialog", "Preço"))
         item = self.tableWidget.horizontalHeaderItem(3)
         item.setText(_translate("Dialog", "Observação"))
-        self.btn_pesquisar_produtos.setText(_translate("Dialog", "Pesquisar"))
-        self.btn_editar_produtos.setText(_translate("Dialog", "Editar"))
-        self.btn_excluir_produtos.setText(_translate("Dialog", "Excluir"))
         self.label_43.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
         self.label_42.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
+        self.btn_excluir_produtos.setText(_translate("Dialog", "Excluir"))
+        self.btn_pesquisar_produtos.setText(_translate("Dialog", "Pesquisar"))
+        self.label_46.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
+        self.line_pesquisar_produtos.setPlaceholderText(_translate("Dialog", "Digite o que deseja pesquisar"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_lista_de_produtos), _translate("Dialog", "Lista de Produtos"))
         self.tabWidget.setTabToolTip(self.tabWidget.indexOf(self.tab_lista_de_produtos), _translate("Dialog", "Lista de Produtos Cadastrado no Sistema"))
         self.label_44.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))

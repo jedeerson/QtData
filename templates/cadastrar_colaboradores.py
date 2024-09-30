@@ -284,58 +284,40 @@ class Ui_cadastrar_colaboradores(object):
         font.setBold(True)
         font.setWeight(75)
         item.setFont(font)
+
+        self.tableWidget.setColumnWidth(1, 200)
+        self.tableWidget.setColumnWidth(2, 100)
+        self.tableWidget.setColumnWidth(3, 100)
+        self.tableWidget.setColumnWidth(4, 120)
+        self.tableWidget.setColumnWidth(5, 95)
+        self.tableWidget.setColumnWidth(6, 130)
+
+
         self.tableWidget.setHorizontalHeaderItem(6, item)
-        self.frame_botoes_produtos = QtWidgets.QFrame(self.tab_cadastro_colaboradores)
-        self.frame_botoes_produtos.setGeometry(QtCore.QRect(10, 390, 721, 101))
-        self.frame_botoes_produtos.setStyleSheet("background-color: rgb(121, 121, 121);")
-        self.frame_botoes_produtos.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_botoes_produtos.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_botoes_produtos.setObjectName("frame_botoes_produtos")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.frame_botoes_produtos)
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.btn_pesquisar_colaboradores = QtWidgets.QPushButton(self.frame_botoes_produtos)
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        self.btn_pesquisar_colaboradores.setFont(font)
-        self.btn_pesquisar_colaboradores.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btn_pesquisar_colaboradores.setStyleSheet("QPushButton{\n"
-"\n"
-"    background-color: rgb(216, 216, 216);\n"
-"    color: rgb(0, 0, 0);\n"
-"    alternate-background-color: rgb(255, 255, 255);\n"
-"    border-radius:10px;\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton::hover{\n"
-"    color: rgb(255, 255, 255);\n"
-"    background-color: rgb(0, 0, 0);\n"
-"}\n"
-"")
-        self.btn_pesquisar_colaboradores.setObjectName("btn_pesquisar_colaboradores")
-        self.verticalLayout.addWidget(self.btn_pesquisar_colaboradores)
-        self.btn_editar_colaboradores = QtWidgets.QPushButton(self.frame_botoes_produtos)
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        self.btn_editar_colaboradores.setFont(font)
-        self.btn_editar_colaboradores.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btn_editar_colaboradores.setStyleSheet("QPushButton{\n"
-"\n"
-"    background-color: rgb(216, 216, 216);\n"
-"    color: rgb(0, 0, 0);\n"
-"    alternate-background-color: rgb(255, 255, 255);\n"
-"    border-radius:10px;\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton::hover{\n"
-"    color: rgb(255, 255, 255);\n"
-"    background-color: rgb(0, 0, 0);\n"
-"}\n"
-"")
-        self.btn_editar_colaboradores.setObjectName("btn_editar_colaboradores")
-        self.verticalLayout.addWidget(self.btn_editar_colaboradores)
-        self.btn_excluir_colaboradores = QtWidgets.QPushButton(self.frame_botoes_produtos)
+        self.label_43 = QtWidgets.QLabel(self.tab_cadastro_colaboradores)
+        self.label_43.setGeometry(QtCore.QRect(730, 0, 9, 500))
+        self.label_43.setStyleSheet("background-color: rgb(255, 85, 0);\n"
+"font: 87 12pt \"Arial Black\";")
+        self.label_43.setObjectName("label_43")
+        self.label_42 = QtWidgets.QLabel(self.tab_cadastro_colaboradores)
+        self.label_42.setGeometry(QtCore.QRect(0, 0, 9, 500))
+        self.label_42.setStyleSheet("background-color: rgb(255, 85, 0);\n"
+"font: 87 12pt \"Arial Black\";")
+        self.label_42.setObjectName("label_42")
+        self.refresh = QtWidgets.QLabel(self.tab_cadastro_colaboradores)
+        self.refresh.setGeometry(QtCore.QRect(698, 4, 41, 31))
+        self.refresh.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.refresh.setStyleSheet("background-color: rgb(255, 85, 0);\n"
+"image: url(:/Colaboradores/Img/botao-atualizar.png);")
+        self.refresh.setText("")
+        self.refresh.setObjectName("refresh")
+        self.frame = QtWidgets.QFrame(self.tab_cadastro_colaboradores)
+        self.frame.setGeometry(QtCore.QRect(10, 390, 721, 101))
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.btn_excluir_colaboradores = QtWidgets.QPushButton(self.frame)
+        self.btn_excluir_colaboradores.setGeometry(QtCore.QRect(10, 50, 702, 35))
         font = QtGui.QFont()
         font.setPointSize(11)
         self.btn_excluir_colaboradores.setFont(font)
@@ -355,24 +337,44 @@ class Ui_cadastrar_colaboradores(object):
 "}\n"
 "")
         self.btn_excluir_colaboradores.setObjectName("btn_excluir_colaboradores")
-        self.verticalLayout.addWidget(self.btn_excluir_colaboradores)
-        self.label_43 = QtWidgets.QLabel(self.tab_cadastro_colaboradores)
-        self.label_43.setGeometry(QtCore.QRect(730, 0, 9, 500))
-        self.label_43.setStyleSheet("background-color: rgb(255, 85, 0);\n"
+        self.btn_pesquisar_colaboradores = QtWidgets.QPushButton(self.frame)
+        self.btn_pesquisar_colaboradores.setGeometry(QtCore.QRect(366, 10, 345, 35))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.btn_pesquisar_colaboradores.setFont(font)
+        self.btn_pesquisar_colaboradores.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_pesquisar_colaboradores.setStyleSheet("QPushButton{\n"
+"\n"
+"    background-color: rgb(216, 216, 216);\n"
+"    color: rgb(0, 0, 0);\n"
+"    alternate-background-color: rgb(255, 255, 255);\n"
+"    border-radius:10px;\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton::hover{\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: rgb(0, 0, 0);\n"
+"}\n"
+"")
+        self.btn_pesquisar_colaboradores.setObjectName("btn_pesquisar_colaboradores")
+        self.label_45 = QtWidgets.QLabel(self.frame)
+        self.label_45.setGeometry(QtCore.QRect(2, 100, 738, 9))
+        self.label_45.setStyleSheet("background-color: rgb(255, 85, 0);\n"
 "font: 87 12pt \"Arial Black\";")
-        self.label_43.setObjectName("label_43")
-        self.label_42 = QtWidgets.QLabel(self.tab_cadastro_colaboradores)
-        self.label_42.setGeometry(QtCore.QRect(0, 0, 9, 500))
-        self.label_42.setStyleSheet("background-color: rgb(255, 85, 0);\n"
-"font: 87 12pt \"Arial Black\";")
-        self.label_42.setObjectName("label_42")
-        self.refresh = QtWidgets.QLabel(self.tab_cadastro_colaboradores)
-        self.refresh.setGeometry(QtCore.QRect(698, 4, 41, 31))
-        self.refresh.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.refresh.setStyleSheet("background-color: rgb(255, 85, 0);\n"
-"image: url(:/Colaboradores/Img/botao-atualizar.png);")
-        self.refresh.setText("")
-        self.refresh.setObjectName("refresh")
+        self.label_45.setObjectName("label_45")
+        self.line_pesquisar_colaboradores = QtWidgets.QLineEdit(self.frame)
+        self.line_pesquisar_colaboradores.setGeometry(QtCore.QRect(10, 10, 345, 35))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.line_pesquisar_colaboradores.setFont(font)
+        self.line_pesquisar_colaboradores.setAutoFillBackground(False)
+        self.line_pesquisar_colaboradores.setStyleSheet("background-color: rgb(250, 250, 250);")
+        self.line_pesquisar_colaboradores.setAlignment(QtCore.Qt.AlignCenter)
+        self.line_pesquisar_colaboradores.setDragEnabled(False)
+        self.line_pesquisar_colaboradores.setReadOnly(False)
+        self.line_pesquisar_colaboradores.setClearButtonEnabled(False)
+        self.line_pesquisar_colaboradores.setObjectName("line_pesquisar_colaboradores")
         self.tabWidget.addTab(self.tab_cadastro_colaboradores, "")
         self.label_44 = QtWidgets.QLabel(Dialog)
         self.label_44.setGeometry(QtCore.QRect(2, 510, 738, 9))
@@ -395,12 +397,10 @@ class Ui_cadastrar_colaboradores(object):
         Dialog.setTabOrder(self.btn_cadastro_usuario, self.btn_cancelar_usuario)
         Dialog.setTabOrder(self.btn_cancelar_usuario, self.btn_limpar_usuario)
         Dialog.setTabOrder(self.btn_limpar_usuario, self.tableWidget)
-        Dialog.setTabOrder(self.tableWidget, self.btn_editar_colaboradores)
-        Dialog.setTabOrder(self.btn_editar_colaboradores, self.btn_excluir_colaboradores)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Cadastrar Colaboradores", "Cadastrar Colaboradores"))
         self.label_17.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
         self.label_4.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
         self.btn_cancelar_usuario.setText(_translate("Dialog", "Cancelar"))
@@ -434,11 +434,12 @@ class Ui_cadastrar_colaboradores(object):
         item.setText(_translate("Dialog", "CEP"))
         item = self.tableWidget.horizontalHeaderItem(6)
         item.setText(_translate("Dialog", "Endereço"))
-        self.btn_pesquisar_colaboradores.setText(_translate("Dialog", "Pesquisar"))
-        self.btn_editar_colaboradores.setText(_translate("Dialog", "Editar"))
-        self.btn_excluir_colaboradores.setText(_translate("Dialog", "Excluir"))
         self.label_43.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
         self.label_42.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
+        self.btn_excluir_colaboradores.setText(_translate("Dialog", "Excluir"))
+        self.btn_pesquisar_colaboradores.setText(_translate("Dialog", "Pesquisar"))
+        self.label_45.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
+        self.line_pesquisar_colaboradores.setPlaceholderText(_translate("Dialog", "Digite o que deseja pesquisar"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_cadastro_colaboradores), _translate("Dialog", "Lista de Colaboradores"))
         self.tabWidget.setTabToolTip(self.tabWidget.indexOf(self.tab_cadastro_colaboradores), _translate("Dialog", "Listas de Colaboradores no Sistema"))
         self.label_44.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))

@@ -290,7 +290,7 @@ class Ui_tela_principal(object):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("Tela Principal", "Tela Principal"))
         self.label_2.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600; font-style:italic;\">Usuário Logado:</span></p></body></html>"))
         self.logado.setText(_translate("MainWindow", "<html><head/><body><p><span style=\" font-size:18pt; font-weight:600; font-style:italic;\">...</span></p></body></html>"))
         self.label_3.setText(_translate("MainWindow", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))

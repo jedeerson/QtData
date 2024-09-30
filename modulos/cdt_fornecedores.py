@@ -7,8 +7,10 @@ from PyQt5.QtGui import QIcon, QPixmap
 from PyQt5.QtPrintSupport import *
 import os,sys
 
+
 from templates.cadastrar_fornecedores import Ui_cadastrar_fornecedores
 from db.query import sqlite_db
+
 
 class cadastrarfornecedores(QDialog):
     def __init__(self, *args,**argvs):
@@ -18,8 +20,12 @@ class cadastrarfornecedores(QDialog):
         self.ui.btn_cadastro_fornecedores.clicked.connect(self.add)
         self.ui.btn_cancelar_fornecedores.clicked.connect(self.can)
         self.ui.btn_cadastrar_fornecedor.clicked.connect(self.limpar)
+        self.ui.btn_pesquisar_fornecedores.clicked.connect(self.pesquisar)
+        self.ui.btn_excluir_fornecedores.clicked.connect(self.excluir_fornecedores)
+        self.ui.refresh.mousePressEvent = self.on_refresh_click
         self.carregadados_fornecedores()
-    
+
+
     def add(self):
         db = sqlite_db("fornecedores.db")
 
@@ -54,9 +60,54 @@ class cadastrarfornecedores(QDialog):
         self.ui.tipo_de_fornecedores.setText("")
 
 
+    def on_refresh_click(self, event):	
+            if event.button() == Qt.LeftButton:
+                self.carregadados_fornecedores()     
+
+
+    def pesquisar(self):
+        db = sqlite_db("fornecedores.db")
+        valor_consulta =""
+        valor_consulta = self.ui.line_pesquisar_fornecedores.text()
+
+        lista = db.pegar_dados(f"SELECT * FROM fornecedores where Nome_Fantasia like '%{valor_consulta}%' or CPF_CNPJ like'%{valor_consulta}%' or Razão_Social like'%{valor_consulta}%' or Endereço like'%{valor_consulta}%' or Inscricao_Estadual like'%{valor_consulta}%' or Telefone like'%{valor_consulta}%' or Email like'%{valor_consulta}%' or Tipo_de_Fornecedor like'%{valor_consulta}%'")
+        lista = list(lista)
+        if not lista:
+            return  QMessageBox.warning(QMessageBox(),"Atenção!!", "Não encontrado!")
+            
+        else:   
+            self.ui.tableWidget.setRowCount(0)
+            for idxLinha, linha in enumerate(lista):
+                self.ui.tableWidget.insertRow(idxLinha)
+                for idxColuna, coluna in enumerate(linha):
+                    self.ui.tableWidget.setItem(idxLinha, idxColuna, QTableWidgetItem(str(coluna))) 
+
+
+    def excluir_fornecedores(self):
+            try:
+                db = sqlite_db("fornecedores.db")
+                id = self.pegar_dados_da_tabela()
+                print(id)
+                db.inserir_apagar_atualizar("DELETE FROM fornecedores WHERE id='{}'".format(id))
+                QMessageBox.information(QMessageBox(), "AVISO!", f"Dados excluídos!")
+                self.carregadados_fornecedores()
+            except:
+                 QMessageBox.warning(QMessageBox(), "AVISO", f"Não foi possível excluir dados!")
+
+
+    def pegar_dados_do_banco(self):
+        return self.ui.tableWidget.currentRow()
+
+
+    def pegar_dados_da_tabela(self):
+        valor = self.ui.tableWidget.item(self.pegar_dados_do_banco(), 0)
+        return valor.text()            
+
+
     def carregadados_fornecedores(self):
             db = sqlite_db("fornecedores.db")
             lista = db.pegar_dados("SELECT * FROM fornecedores")
+            lista.reverse()
             
             self.ui.tableWidget.setRowCount(0)
             for linha, dados in enumerate(lista):

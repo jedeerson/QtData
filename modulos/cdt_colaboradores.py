@@ -19,7 +19,10 @@ class cadastrarcolaboradores(QDialog):
         self.ui.setupUi(self)
         self.ui.btn_cadastro_usuario.clicked.connect(self.add)  
         self.ui.btn_cancelar_usuario.clicked.connect(self.can)
-        self.ui.btn_limpar_usuario.clicked.connect(self.limpar) 
+        self.ui.btn_limpar_usuario.clicked.connect(self.limpar)
+        self.ui.btn_pesquisar_colaboradores.clicked.connect(self.pesquisar)
+        self.ui.btn_excluir_colaboradores.clicked.connect(self.excluir_colaboradores)
+        self.ui.refresh.mousePressEvent = self.on_refresh_click
         self.carregadados_colaboradores() 
 
 
@@ -59,12 +62,62 @@ class cadastrarcolaboradores(QDialog):
        admin = 1
 
 
+    def on_refresh_click(self, event):	
+            if event.button() == Qt.LeftButton:
+                self.carregadados_colaboradores()
+
+
+    def pesquisar(self):
+        db = sqlite_db("colaboradores.db")
+        valor_consulta =""
+        valor_consulta = self.ui.line_pesquisar_colaboradores.text()
+
+        lista = db.pegar_dados(f"SELECT * FROM colaboradores where Nome like '%{valor_consulta}%' or CPF like'%{valor_consulta}%' or Nascimento like'%{valor_consulta}%' or Setor like'%{valor_consulta}%' or CEP like'%{valor_consulta}%' or Endereço like'%{valor_consulta}%'")
+        lista = list(lista)
+        if not lista:
+            return  QMessageBox.warning(QMessageBox(),"Atenção!!", "Não encontrado!")
+            
+        else:   
+            self.ui.tableWidget.setRowCount(0)
+            for idxLinha, linha in enumerate(lista):
+                self.ui.tableWidget.insertRow(idxLinha)
+                for idxColuna, coluna in enumerate(linha):
+                    self.ui.tableWidget.setItem(idxLinha, idxColuna, QTableWidgetItem(str(coluna)))  
+
+
+    def excluir_colaboradores(self):
+            try:
+                db = sqlite_db("colaboradores.db")
+                id = self.pegar_dados_da_tabela()
+                print(id)
+                db.inserir_apagar_atualizar("DELETE FROM colaboradores WHERE id='{}'".format(id))
+                QMessageBox.information(QMessageBox(), "AVISO!", f"Dados excluídos!")
+                self.carregadados_colaboradores()
+            except:
+                 QMessageBox.warning(QMessageBox(), "AVISO", f"Não foi possível excluir dados!")
+
+
+    def pegar_dados_do_banco(self):
+        return self.ui.tableWidget.currentRow()
+
+
+    def pegar_dados_da_tabela(self):
+        valor = self.ui.tableWidget.item(self.pegar_dados_do_banco(), 0)
+        return valor.text()
+
+
     def carregadados_colaboradores(self):
             db = sqlite_db("colaboradores.db")
             lista = db.pegar_dados("SELECT * FROM colaboradores")
+            lista.reverse()
             
             self.ui.tableWidget.setRowCount(0)
             for linha, dados in enumerate(lista):
                 self.ui.tableWidget.insertRow(linha)
                 for coluna_colaboradores, dados in enumerate(dados):
                     self.ui.tableWidget.setItem(linha,coluna_colaboradores,QTableWidgetItem(str(dados)))
+
+    	
+              
+
+              

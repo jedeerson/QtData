@@ -336,15 +336,68 @@ class Ui_cadastrar_fornecedores(object):
         font.setWeight(75)
         item.setFont(font)
         self.tableWidget.setHorizontalHeaderItem(8, item)
-        self.frame_botoes_fornecedores = QtWidgets.QFrame(self.tab_lista_fornecedores)
-        self.frame_botoes_fornecedores.setGeometry(QtCore.QRect(10, 390, 721, 101))
-        self.frame_botoes_fornecedores.setStyleSheet("background-color: rgb(121, 121, 121);")
-        self.frame_botoes_fornecedores.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_botoes_fornecedores.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_botoes_fornecedores.setObjectName("frame_botoes_fornecedores")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.frame_botoes_fornecedores)
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.btn_pesquisar_fornecedores = QtWidgets.QPushButton(self.frame_botoes_fornecedores)
+        self.label_10 = QtWidgets.QLabel(self.tab_lista_fornecedores)
+        self.label_10.setGeometry(QtCore.QRect(0, 0, 741, 40))
+        font = QtGui.QFont()
+        font.setPointSize(14)
+        self.label_10.setFont(font)
+
+        self.tableWidget.setColumnWidth(1, 150)
+        self.tableWidget.setColumnWidth(2, 100)
+        self.tableWidget.setColumnWidth(3, 120)
+        self.tableWidget.setColumnWidth(4, 120)
+        self.tableWidget.setColumnWidth(5, 150)
+        self.tableWidget.setColumnWidth(6, 110)
+        self.tableWidget.setColumnWidth(7, 150)
+        self.tableWidget.setColumnWidth(8, 150)
+
+
+        self.label_10.setStyleSheet("background-color: rgb(255, 85, 0);")
+        self.label_10.setObjectName("label_10")
+        self.label_43 = QtWidgets.QLabel(self.tab_lista_fornecedores)
+        self.label_43.setGeometry(QtCore.QRect(730, 0, 9, 500))
+        self.label_43.setStyleSheet("background-color: rgb(255, 85, 0);\n"
+"font: 87 12pt \"Arial Black\";")
+        self.label_43.setObjectName("label_43")
+        self.label_44 = QtWidgets.QLabel(self.tab_lista_fornecedores)
+        self.label_44.setGeometry(QtCore.QRect(0, 0, 9, 500))
+        self.label_44.setStyleSheet("background-color: rgb(255, 85, 0);\n"
+"font: 87 12pt \"Arial Black\";")
+        self.label_44.setObjectName("label_44")
+        self.refresh = QtWidgets.QLabel(self.tab_lista_fornecedores)
+        self.refresh.setGeometry(QtCore.QRect(698, 4, 41, 31))
+        self.refresh.setStyleSheet("background-color: rgb(255, 85, 0);\n"
+"image: url(:/Item/Img/botao-atualizar.png);")
+        self.refresh.setText("")
+        self.refresh.setObjectName("refresh")
+        self.frame = QtWidgets.QFrame(self.tab_lista_fornecedores)
+        self.frame.setGeometry(QtCore.QRect(10, 390, 721, 101))
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.btn_excluir_fornecedores = QtWidgets.QPushButton(self.frame)
+        self.btn_excluir_fornecedores.setGeometry(QtCore.QRect(10, 50, 702, 35))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.btn_excluir_fornecedores.setFont(font)
+        self.btn_excluir_fornecedores.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_excluir_fornecedores.setStyleSheet("QPushButton{\n"
+"\n"
+"    background-color: rgb(216, 216, 216);\n"
+"    color: rgb(0, 0, 0);\n"
+"    alternate-background-color: rgb(255, 255, 255);\n"
+"    border-radius:10px;\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton::hover{\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: rgb(0, 0, 0);\n"
+"}\n"
+"")
+        self.btn_excluir_fornecedores.setObjectName("btn_excluir_fornecedores")
+        self.btn_pesquisar_fornecedores = QtWidgets.QPushButton(self.frame)
+        self.btn_pesquisar_fornecedores.setGeometry(QtCore.QRect(366, 10, 345, 35))
         font = QtGui.QFont()
         font.setPointSize(11)
         self.btn_pesquisar_fornecedores.setFont(font)
@@ -364,72 +417,23 @@ class Ui_cadastrar_fornecedores(object):
 "}\n"
 "")
         self.btn_pesquisar_fornecedores.setObjectName("btn_pesquisar_fornecedores")
-        self.verticalLayout.addWidget(self.btn_pesquisar_fornecedores)
-        self.btn_editar_fornecedores = QtWidgets.QPushButton(self.frame_botoes_fornecedores)
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        self.btn_editar_fornecedores.setFont(font)
-        self.btn_editar_fornecedores.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btn_editar_fornecedores.setStyleSheet("QPushButton{\n"
-"\n"
-"    background-color: rgb(216, 216, 216);\n"
-"    color: rgb(0, 0, 0);\n"
-"    alternate-background-color: rgb(255, 255, 255);\n"
-"    border-radius:10px;\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton::hover{\n"
-"    color: rgb(255, 255, 255);\n"
-"    background-color: rgb(0, 0, 0);\n"
-"}\n"
-"")
-        self.btn_editar_fornecedores.setObjectName("btn_editar_fornecedores")
-        self.verticalLayout.addWidget(self.btn_editar_fornecedores)
-        self.btn_excluir_fornecedor = QtWidgets.QPushButton(self.frame_botoes_fornecedores)
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        self.btn_excluir_fornecedor.setFont(font)
-        self.btn_excluir_fornecedor.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btn_excluir_fornecedor.setStyleSheet("QPushButton{\n"
-"\n"
-"    background-color: rgb(216, 216, 216);\n"
-"    color: rgb(0, 0, 0);\n"
-"    alternate-background-color: rgb(255, 255, 255);\n"
-"    border-radius:10px;\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton::hover{\n"
-"    color: rgb(255, 255, 255);\n"
-"    background-color: rgb(0, 0, 0);\n"
-"}\n"
-"")
-        self.btn_excluir_fornecedor.setObjectName("btn_excluir_fornecedor")
-        self.verticalLayout.addWidget(self.btn_excluir_fornecedor)
-        self.label_10 = QtWidgets.QLabel(self.tab_lista_fornecedores)
-        self.label_10.setGeometry(QtCore.QRect(0, 0, 741, 40))
-        font = QtGui.QFont()
-        font.setPointSize(14)
-        self.label_10.setFont(font)
-        self.label_10.setStyleSheet("background-color: rgb(255, 85, 0);")
-        self.label_10.setObjectName("label_10")
-        self.label_43 = QtWidgets.QLabel(self.tab_lista_fornecedores)
-        self.label_43.setGeometry(QtCore.QRect(730, 0, 9, 500))
-        self.label_43.setStyleSheet("background-color: rgb(255, 85, 0);\n"
+        self.label_46 = QtWidgets.QLabel(self.frame)
+        self.label_46.setGeometry(QtCore.QRect(2, 100, 738, 9))
+        self.label_46.setStyleSheet("background-color: rgb(255, 85, 0);\n"
 "font: 87 12pt \"Arial Black\";")
-        self.label_43.setObjectName("label_43")
-        self.label_44 = QtWidgets.QLabel(self.tab_lista_fornecedores)
-        self.label_44.setGeometry(QtCore.QRect(0, 0, 9, 500))
-        self.label_44.setStyleSheet("background-color: rgb(255, 85, 0);\n"
-"font: 87 12pt \"Arial Black\";")
-        self.label_44.setObjectName("label_44")
-        self.refresh = QtWidgets.QLabel(self.tab_lista_fornecedores)
-        self.refresh.setGeometry(QtCore.QRect(698, 4, 41, 31))
-        self.refresh.setStyleSheet("background-color: rgb(255, 85, 0);\n"
-"image: url(:/Item/Img/botao-atualizar.png);")
-        self.refresh.setText("")
-        self.refresh.setObjectName("refresh")
+        self.label_46.setObjectName("label_46")
+        self.line_pesquisar_fornecedores = QtWidgets.QLineEdit(self.frame)
+        self.line_pesquisar_fornecedores.setGeometry(QtCore.QRect(10, 10, 345, 35))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.line_pesquisar_fornecedores.setFont(font)
+        self.line_pesquisar_fornecedores.setAutoFillBackground(False)
+        self.line_pesquisar_fornecedores.setStyleSheet("background-color: rgb(250, 250, 250);")
+        self.line_pesquisar_fornecedores.setAlignment(QtCore.Qt.AlignCenter)
+        self.line_pesquisar_fornecedores.setDragEnabled(False)
+        self.line_pesquisar_fornecedores.setReadOnly(False)
+        self.line_pesquisar_fornecedores.setClearButtonEnabled(False)
+        self.line_pesquisar_fornecedores.setObjectName("line_pesquisar_fornecedores")
         self.tabWidget.addTab(self.tab_lista_fornecedores, "")
         self.label_45 = QtWidgets.QLabel(Dialog)
         self.label_45.setGeometry(QtCore.QRect(0, 509, 738, 9))
@@ -453,13 +457,10 @@ class Ui_cadastrar_fornecedores(object):
         Dialog.setTabOrder(self.btn_cadastro_fornecedores, self.btn_cancelar_fornecedores)
         Dialog.setTabOrder(self.btn_cancelar_fornecedores, self.btn_cadastrar_fornecedor)
         Dialog.setTabOrder(self.btn_cadastrar_fornecedor, self.tableWidget)
-        Dialog.setTabOrder(self.tableWidget, self.btn_pesquisar_fornecedores)
-        Dialog.setTabOrder(self.btn_pesquisar_fornecedores, self.btn_excluir_fornecedor)
-        Dialog.setTabOrder(self.btn_excluir_fornecedor, self.btn_editar_fornecedores)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Cadastrar Fornecedores", "Cadastrar Fornecedores"))
         self.label_9.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
         self.label_2.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:600;\">Cadastrar Fornecedor</span></p></body></html>"))
         self.label_5.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
@@ -499,12 +500,13 @@ class Ui_cadastrar_fornecedores(object):
         item.setText(_translate("Dialog", "E-Mail"))
         item = self.tableWidget.horizontalHeaderItem(8)
         item.setText(_translate("Dialog", "Tipo de Fornecedor"))
-        self.btn_pesquisar_fornecedores.setText(_translate("Dialog", "Pesquisar"))
-        self.btn_editar_fornecedores.setText(_translate("Dialog", "Editar"))
-        self.btn_excluir_fornecedor.setText(_translate("Dialog", "Excluir"))
         self.label_10.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:600;\">Lista de Fornecedores</span></p></body></html>"))
         self.label_43.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
         self.label_44.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
+        self.btn_excluir_fornecedores.setText(_translate("Dialog", "Excluir"))
+        self.btn_pesquisar_fornecedores.setText(_translate("Dialog", "Pesquisar"))
+        self.label_46.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
+        self.line_pesquisar_fornecedores.setPlaceholderText(_translate("Dialog", "Digite o que deseja pesquisar"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_lista_fornecedores), _translate("Dialog", "Lista de Fornecedores"))
         self.tabWidget.setTabToolTip(self.tabWidget.indexOf(self.tab_lista_fornecedores), _translate("Dialog", "Lista de Itens Fornecedores no Sistema"))
         self.label_45.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))

@@ -20,7 +20,8 @@ class login(QDialog):
 		self.ui = Ui_tela_login()
 		self.ui.setupUi(self)
 		self.ui.Btn_Entrar.clicked.connect(self.login)
-		#self.ui.Btn_Sair.clicked.connect(self.login)
+		self.ui.Btn_Sair.clicked.connect(self.sair)
+		
 
 	def login(self):
 		db = sqlite_db("colaboradores.db")
@@ -40,7 +41,8 @@ class login(QDialog):
 			else:
 				QMessageBox.warning(QMessageBox(), "Login Errado!", "NÃO ENTROU COM SUCESSO!")
 		
-
+	def sair(self):
+		self.close()
 
 
 

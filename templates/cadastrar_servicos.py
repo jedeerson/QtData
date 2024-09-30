@@ -205,6 +205,12 @@ class Ui_cadastrar_servicos(object):
         font.setBold(True)
         font.setWeight(75)
         item.setFont(font)
+
+        self.tableWidget.setColumnWidth(1, 150)
+        self.tableWidget.setColumnWidth(2, 80)
+        self.tableWidget.setColumnWidth(3, 150)
+
+
         self.tableWidget.setHorizontalHeaderItem(3, item)
         self.label_7 = QtWidgets.QLabel(self.tab_lista_de_servicos)
         self.label_7.setGeometry(QtCore.QRect(0, 0, 741, 40))
@@ -213,57 +219,34 @@ class Ui_cadastrar_servicos(object):
         self.label_7.setFont(font)
         self.label_7.setStyleSheet("background-color: rgb(255, 85, 0);")
         self.label_7.setObjectName("label_7")
-        self.frame_botoes_servicos = QtWidgets.QFrame(self.tab_lista_de_servicos)
-        self.frame_botoes_servicos.setGeometry(QtCore.QRect(10, 391, 721, 101))
-        self.frame_botoes_servicos.setStyleSheet("background-color: rgb(121, 121, 121);")
-        self.frame_botoes_servicos.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.frame_botoes_servicos.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.frame_botoes_servicos.setObjectName("frame_botoes_servicos")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.frame_botoes_servicos)
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.btn_pesquisar_fornecedores = QtWidgets.QPushButton(self.frame_botoes_servicos)
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        self.btn_pesquisar_fornecedores.setFont(font)
-        self.btn_pesquisar_fornecedores.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btn_pesquisar_fornecedores.setStyleSheet("QPushButton{\n"
-"\n"
-"    background-color: rgb(216, 216, 216);\n"
-"    color: rgb(0, 0, 0);\n"
-"    alternate-background-color: rgb(255, 255, 255);\n"
-"    border-radius:10px;\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton::hover{\n"
-"    color: rgb(255, 255, 255);\n"
-"    background-color: rgb(0, 0, 0);\n"
-"}\n"
-"")
-        self.btn_pesquisar_fornecedores.setObjectName("btn_pesquisar_fornecedores")
-        self.verticalLayout.addWidget(self.btn_pesquisar_fornecedores)
-        self.btn_alterar_servicos = QtWidgets.QPushButton(self.frame_botoes_servicos)
-        font = QtGui.QFont()
-        font.setPointSize(11)
-        self.btn_alterar_servicos.setFont(font)
-        self.btn_alterar_servicos.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
-        self.btn_alterar_servicos.setStyleSheet("QPushButton{\n"
-"\n"
-"    background-color: rgb(216, 216, 216);\n"
-"    color: rgb(0, 0, 0);\n"
-"    alternate-background-color: rgb(255, 255, 255);\n"
-"    border-radius:10px;\n"
-"\n"
-"}\n"
-"\n"
-"QPushButton::hover{\n"
-"    color: rgb(255, 255, 255);\n"
-"    background-color: rgb(0, 0, 0);\n"
-"}\n"
-"")
-        self.btn_alterar_servicos.setObjectName("btn_alterar_servicos")
-        self.verticalLayout.addWidget(self.btn_alterar_servicos)
-        self.btn_excluir_servicos = QtWidgets.QPushButton(self.frame_botoes_servicos)
+        self.label_43 = QtWidgets.QLabel(self.tab_lista_de_servicos)
+        self.label_43.setGeometry(QtCore.QRect(730, 0, 9, 500))
+        self.label_43.setStyleSheet("background-color: rgb(255, 85, 0);\n"
+"font: 87 12pt \"Arial Black\";")
+        self.label_43.setObjectName("label_43")
+        self.label_44 = QtWidgets.QLabel(self.tab_lista_de_servicos)
+        self.label_44.setGeometry(QtCore.QRect(0, 0, 9, 500))
+        self.label_44.setStyleSheet("background-color: rgb(255, 85, 0);\n"
+"font: 87 12pt \"Arial Black\";")
+        self.label_44.setObjectName("label_44")
+        self.label_45 = QtWidgets.QLabel(self.tab_lista_de_servicos)
+        self.label_45.setGeometry(QtCore.QRect(0, 480, 738, 9))
+        self.label_45.setStyleSheet("background-color: rgb(255, 85, 0);\n"
+"font: 87 12pt \"Arial Black\";")
+        self.label_45.setObjectName("label_45")
+        self.refresh = QtWidgets.QLabel(self.tab_lista_de_servicos)
+        self.refresh.setGeometry(QtCore.QRect(698, 4, 41, 31))
+        self.refresh.setStyleSheet("background-color: rgb(255, 85, 0);\n"
+"image: url(:/Servico/Img/botao-atualizar.png);")
+        self.refresh.setText("")
+        self.refresh.setObjectName("refresh")
+        self.frame = QtWidgets.QFrame(self.tab_lista_de_servicos)
+        self.frame.setGeometry(QtCore.QRect(10, 390, 721, 101))
+        self.frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.frame.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.frame.setObjectName("frame")
+        self.btn_excluir_servicos = QtWidgets.QPushButton(self.frame)
+        self.btn_excluir_servicos.setGeometry(QtCore.QRect(10, 50, 702, 35))
         font = QtGui.QFont()
         font.setPointSize(11)
         self.btn_excluir_servicos.setFont(font)
@@ -283,28 +266,44 @@ class Ui_cadastrar_servicos(object):
 "}\n"
 "")
         self.btn_excluir_servicos.setObjectName("btn_excluir_servicos")
-        self.verticalLayout.addWidget(self.btn_excluir_servicos)
-        self.label_43 = QtWidgets.QLabel(self.tab_lista_de_servicos)
-        self.label_43.setGeometry(QtCore.QRect(730, 0, 9, 500))
-        self.label_43.setStyleSheet("background-color: rgb(255, 85, 0);\n"
+        self.btn_pesquisar_servicos = QtWidgets.QPushButton(self.frame)
+        self.btn_pesquisar_servicos.setGeometry(QtCore.QRect(366, 10, 345, 35))
+        font = QtGui.QFont()
+        font.setPointSize(11)
+        self.btn_pesquisar_servicos.setFont(font)
+        self.btn_pesquisar_servicos.setCursor(QtGui.QCursor(QtCore.Qt.PointingHandCursor))
+        self.btn_pesquisar_servicos.setStyleSheet("QPushButton{\n"
+"\n"
+"    background-color: rgb(216, 216, 216);\n"
+"    color: rgb(0, 0, 0);\n"
+"    alternate-background-color: rgb(255, 255, 255);\n"
+"    border-radius:10px;\n"
+"\n"
+"}\n"
+"\n"
+"QPushButton::hover{\n"
+"    color: rgb(255, 255, 255);\n"
+"    background-color: rgb(0, 0, 0);\n"
+"}\n"
+"")
+        self.btn_pesquisar_servicos.setObjectName("btn_pesquisar_servicos")
+        self.label_46 = QtWidgets.QLabel(self.frame)
+        self.label_46.setGeometry(QtCore.QRect(2, 100, 738, 9))
+        self.label_46.setStyleSheet("background-color: rgb(255, 85, 0);\n"
 "font: 87 12pt \"Arial Black\";")
-        self.label_43.setObjectName("label_43")
-        self.label_44 = QtWidgets.QLabel(self.tab_lista_de_servicos)
-        self.label_44.setGeometry(QtCore.QRect(0, 0, 9, 500))
-        self.label_44.setStyleSheet("background-color: rgb(255, 85, 0);\n"
-"font: 87 12pt \"Arial Black\";")
-        self.label_44.setObjectName("label_44")
-        self.label_45 = QtWidgets.QLabel(self.tab_lista_de_servicos)
-        self.label_45.setGeometry(QtCore.QRect(0, 480, 738, 9))
-        self.label_45.setStyleSheet("background-color: rgb(255, 85, 0);\n"
-"font: 87 12pt \"Arial Black\";")
-        self.label_45.setObjectName("label_45")
-        self.label_10 = QtWidgets.QLabel(self.tab_lista_de_servicos)
-        self.label_10.setGeometry(QtCore.QRect(698, 4, 41, 31))
-        self.label_10.setStyleSheet("background-color: rgb(255, 85, 0);\n"
-"image: url(:/Servico/Img/botao-atualizar.png);")
-        self.label_10.setText("")
-        self.label_10.setObjectName("label_10")
+        self.label_46.setObjectName("label_46")
+        self.line_pesquisar_servicos = QtWidgets.QLineEdit(self.frame)
+        self.line_pesquisar_servicos.setGeometry(QtCore.QRect(10, 10, 345, 35))
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.line_pesquisar_servicos.setFont(font)
+        self.line_pesquisar_servicos.setAutoFillBackground(False)
+        self.line_pesquisar_servicos.setStyleSheet("background-color: rgb(250, 250, 250);")
+        self.line_pesquisar_servicos.setAlignment(QtCore.Qt.AlignCenter)
+        self.line_pesquisar_servicos.setDragEnabled(False)
+        self.line_pesquisar_servicos.setReadOnly(False)
+        self.line_pesquisar_servicos.setClearButtonEnabled(False)
+        self.line_pesquisar_servicos.setObjectName("line_pesquisar_servicos")
         self.tabWidget.addTab(self.tab_lista_de_servicos, "")
 
         self.retranslateUi(Dialog)
@@ -317,13 +316,10 @@ class Ui_cadastrar_servicos(object):
         Dialog.setTabOrder(self.btn_Cadastro_Servico, self.btn_Cancelar_Servico)
         Dialog.setTabOrder(self.btn_Cancelar_Servico, self.btn_Limpar_Usuario)
         Dialog.setTabOrder(self.btn_Limpar_Usuario, self.tableWidget)
-        Dialog.setTabOrder(self.tableWidget, self.btn_pesquisar_fornecedores)
-        Dialog.setTabOrder(self.btn_pesquisar_fornecedores, self.btn_alterar_servicos)
-        Dialog.setTabOrder(self.btn_alterar_servicos, self.btn_excluir_servicos)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Cadastrar Serviços", "Cadastrar Serviços"))
         self.label_6.setText(_translate("Dialog", "<html><head/><body><p><span style=\" font-size:12pt;\">Preço</span></p></body></html>"))
         self.btn_Cadastro_Servico.setText(_translate("Dialog", "Cadastrar"))
         self.label_4.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
@@ -346,12 +342,13 @@ class Ui_cadastrar_servicos(object):
         item = self.tableWidget.horizontalHeaderItem(3)
         item.setText(_translate("Dialog", "Observação"))
         self.label_7.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:16pt; font-weight:600;\">Lista de Serviços</span></p></body></html>"))
-        self.btn_pesquisar_fornecedores.setText(_translate("Dialog", "Pesquisar"))
-        self.btn_alterar_servicos.setText(_translate("Dialog", "Alterar"))
-        self.btn_excluir_servicos.setText(_translate("Dialog", "Excluir"))
         self.label_43.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
         self.label_44.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
         self.label_45.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
+        self.btn_excluir_servicos.setText(_translate("Dialog", "Excluir"))
+        self.btn_pesquisar_servicos.setText(_translate("Dialog", "Pesquisar"))
+        self.label_46.setText(_translate("Dialog", "<html><head/><body><p align=\"center\"><br/></p></body></html>"))
+        self.line_pesquisar_servicos.setPlaceholderText(_translate("Dialog", "Digite o que deseja pesquisar"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_lista_de_servicos), _translate("Dialog", "Lista de Serviços"))
         self.tabWidget.setTabToolTip(self.tabWidget.indexOf(self.tab_lista_de_servicos), _translate("Dialog", "Lista de Serviços no Sistema"))
 from icones import icone_servicos
