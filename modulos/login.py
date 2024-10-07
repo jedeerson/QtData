@@ -9,11 +9,13 @@ from PyQt5.QtPrintSupport import *
 import os,sys
 
 
+# Importar interface e banco de dados
 from templates.login import Ui_tela_login
 from modulos.principal import telaprincipal
 from db.query import sqlite_db
 
 
+# Executavel e botões
 class login(QDialog):
 	def __init__(self,*args,**argvs):
 		super(login,self).__init__(*args,**argvs)
@@ -22,7 +24,7 @@ class login(QDialog):
 		self.ui.Btn_Entrar.clicked.connect(self.login)
 		self.ui.Btn_Sair.clicked.connect(self.sair)
 		
-
+# Botões para abrir a tela principal
 	def login(self):
 		db = sqlite_db("colaboradores.db")
 
@@ -41,6 +43,8 @@ class login(QDialog):
 			else:
 				QMessageBox.warning(QMessageBox(), "Login Errado!", "NÃO ENTROU COM SUCESSO!")
 		
+
+# Botão sair 
 	def sair(self):
 		self.close()
 

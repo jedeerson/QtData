@@ -8,10 +8,12 @@ from PyQt5.QtPrintSupport import *
 import os,sys
 
 
+# Importar interface e banco de dados
 from templates.cadastrar_colaboradores import Ui_cadastrar_colaboradores
 from db.query import sqlite_db
 
 
+# Executavel e botões
 class cadastrarcolaboradores(QDialog):
     def __init__(self, *args,**argvs):
         super(cadastrarcolaboradores,self).__init__(*args,**argvs)
@@ -26,6 +28,7 @@ class cadastrarcolaboradores(QDialog):
         self.carregadados_colaboradores() 
 
 
+# Botão de adicionar dados no banco
     def add(self):
         db = sqlite_db("colaboradores.db")
 
@@ -46,10 +49,12 @@ class cadastrarcolaboradores(QDialog):
             QMessageBox.information(QMessageBox(), "AVISO", "DADOS GRAVADOS COM SUCESSO!")
 
 
+# Botão de cancelar
     def can(self):
         self.close()
 
 
+# Botão de limpar
     def limpar(self):
        self.ui.nome_usuario.setText("")
        self.ui.cpf_usuario.setText("")
@@ -62,11 +67,13 @@ class cadastrarcolaboradores(QDialog):
        admin = 1
 
 
+# Botão de atualizar
     def on_refresh_click(self, event):	
             if event.button() == Qt.LeftButton:
                 self.carregadados_colaboradores()
 
 
+# Botão de pesquisar
     def pesquisar(self):
         db = sqlite_db("colaboradores.db")
         valor_consulta =""
@@ -85,6 +92,7 @@ class cadastrarcolaboradores(QDialog):
                     self.ui.tableWidget.setItem(idxLinha, idxColuna, QTableWidgetItem(str(coluna)))  
 
 
+# Botão de excluir
     def excluir_colaboradores(self):
             try:
                 db = sqlite_db("colaboradores.db")
@@ -97,15 +105,18 @@ class cadastrarcolaboradores(QDialog):
                  QMessageBox.warning(QMessageBox(), "AVISO", f"Não foi possível excluir dados!")
 
 
+# Função de pegar dados do banco
     def pegar_dados_do_banco(self):
         return self.ui.tableWidget.currentRow()
 
 
+# Função de pegar dados da tabela
     def pegar_dados_da_tabela(self):
         valor = self.ui.tableWidget.item(self.pegar_dados_do_banco(), 0)
         return valor.text()
 
 
+# Função mostrar dados na tabela
     def carregadados_colaboradores(self):
             db = sqlite_db("colaboradores.db")
             lista = db.pegar_dados("SELECT * FROM colaboradores")

@@ -8,10 +8,12 @@ from PyQt5.QtPrintSupport import *
 import os,sys
 
 
+# Importar interface e banco de dados
 from templates.cadastrar_fornecedores import Ui_cadastrar_fornecedores
 from db.query import sqlite_db
 
 
+# Executavel e botões
 class cadastrarfornecedores(QDialog):
     def __init__(self, *args,**argvs):
         super(cadastrarfornecedores,self).__init__(*args,**argvs)
@@ -26,6 +28,7 @@ class cadastrarfornecedores(QDialog):
         self.carregadados_fornecedores()
 
 
+# Botão de adicionar dados no banco
     def add(self):
         db = sqlite_db("fornecedores.db")
 
@@ -45,10 +48,12 @@ class cadastrarfornecedores(QDialog):
             QMessageBox.information(QMessageBox(), "AVISO", "DADOS GRAVADOS COM SUCESSO!")
 
 
+# Botão de cancelar
     def can(self):
         self.close()
 
 
+# Botão de limpar
     def limpar(self):
         self.ui.nome_fantasia.setText("")
         self.ui.cpf_cnpj_fornecedores.setText("") 
@@ -60,11 +65,13 @@ class cadastrarfornecedores(QDialog):
         self.ui.tipo_de_fornecedores.setText("")
 
 
+# Botão de atualizar
     def on_refresh_click(self, event):	
             if event.button() == Qt.LeftButton:
                 self.carregadados_fornecedores()     
 
 
+# Botão de pesquisar
     def pesquisar(self):
         db = sqlite_db("fornecedores.db")
         valor_consulta =""
@@ -83,6 +90,7 @@ class cadastrarfornecedores(QDialog):
                     self.ui.tableWidget.setItem(idxLinha, idxColuna, QTableWidgetItem(str(coluna))) 
 
 
+# Botão de excluir
     def excluir_fornecedores(self):
             try:
                 db = sqlite_db("fornecedores.db")
@@ -95,15 +103,18 @@ class cadastrarfornecedores(QDialog):
                  QMessageBox.warning(QMessageBox(), "AVISO", f"Não foi possível excluir dados!")
 
 
+# Função de pegar dados do banco
     def pegar_dados_do_banco(self):
         return self.ui.tableWidget.currentRow()
 
 
+# Função de pegar dados da tabela
     def pegar_dados_da_tabela(self):
         valor = self.ui.tableWidget.item(self.pegar_dados_do_banco(), 0)
         return valor.text()            
 
 
+# Função mostrar dados na tabela
     def carregadados_fornecedores(self):
             db = sqlite_db("fornecedores.db")
             lista = db.pegar_dados("SELECT * FROM fornecedores")

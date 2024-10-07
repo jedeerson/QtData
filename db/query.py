@@ -3,7 +3,9 @@ import sqlite3
 
 class sqlite_db:
 
-    def __init__(self,banco =None): #Cria banco de dados
+
+#Cria banco de dados
+    def __init__(self,banco =None): 
         self.conn = None
         self.cursor = None
 
@@ -11,8 +13,8 @@ class sqlite_db:
             self.open(banco)
 
 
-
-    def open(self,banco): #Executado com sucesso
+#Executado com sucesso
+    def open(self,banco): 
         try:
             self.conn = sqlite3.connect(banco)
             self.cursor = self.conn.cursor()
@@ -21,7 +23,8 @@ class sqlite_db:
             print("Não foi possivel estabelecer conexão!")
 
 
-    def criar_tabelas(self): #Criar tabelas
+#Criar tabelas
+    def criar_tabelas(self): 
         cur = self.cursor
         cur.execute("""CREATE TABLE servicos(
             ID integer primary key autoincrement,
@@ -29,21 +32,17 @@ class sqlite_db:
             Preço numeric NOT NULL,
             Observação text NOT NULL)""") 
 
-    def inserir_apagar_atualizar(self,query):
+
+#Inserir dados e apagar 
+    def inserir_apagar_atualizar(self,query): 
         cur = self.cursor
         cur.execute(query)
         self.conn.commit()
 
+
+#Pegar dados do Banco
     def pegar_dados(self,query): 
         cur = self.cursor
         cur.execute(query)
         return cur.fetchall()   
 
-
-# db = sqlite_db("servicos.db")  #Criando nome das tabelas
-
-# db.inserir_apagar_atualizar("INSERT INTO colaboradores (Nome,CPF,Nascimento,Setor,CEP,Endereço,Login,Senha,Acesso) VALUES ('Jederson Remoeri', '09633195900', '22/06/1996', 'adm', '81925450', 'Desembargador Carlos Pinheiro Guimaraes', 'jeder', 'paocomovo', 'admin')")
-
-# db.inserir_apagar_atualizar("UPDATE colaboradores SET Admin='1' WHERE Admin='0' ")
-
-# db.criar_tabelas() #Criando tabelas

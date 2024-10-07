@@ -8,6 +8,7 @@ from PyQt5.QtPrintSupport import *
 import os,sys
 
 
+# Importar telas 
 from templates.tela_principal import Ui_tela_principal
 from modulos.cdt_clientes import cadastrarclientes
 from modulos.cdt_colaboradores import cadastrarcolaboradores
@@ -16,7 +17,7 @@ from modulos.cdt_servicos import cadastrarservicos
 from modulos.cdt_fornecedores import cadastrarfornecedores
 
 
-
+# Executavel e botões
 class telaprincipal(QMainWindow):
 	def __init__(self,telalogin,logado,*args,**argvs):
 		super(telaprincipal,self).__init__(*args,**argvs)
@@ -32,27 +33,37 @@ class telaprincipal(QMainWindow):
 		self.ui.logado.setText(self.userlogado)
 
 
-
+# Função tela Clientes
 	def clientes(self):
 		self.window = cadastrarclientes()
 		self.window.show()
 
+
+# Função tela Colaboradores
 	def coloboradores(self):
 		self.window = cadastrarcolaboradores()
 		self.window.show()	
 
+
+# Função tela Produtos
 	def produtos(self):
 		self.window = cadastrarprodutos()
 		self.window.show()
 
+
+# Função tela Serviços
 	def servicos(self):
 		self.window = cadastrarservicos()
 		self.window.show()	
 
+
+# Função tela Fornecedores
 	def fornecedores(self):
 		self.window = cadastrarfornecedores()
 		self.window.show()	
 
+
+# Função fechar tela para abrir com outro usuário
 	def closeEvent(self, event):
 			reply = QMessageBox.question(self, 'Alerta!',
 										"Tem certeza que deseja sair?", QMessageBox.Yes |

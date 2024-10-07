@@ -6,10 +6,12 @@ from PyQt5.QtPrintSupport import *
 import os, sys
 
 
+# Importar interface e banco de dados
 from templates.cadastrar_clientes import Ui_cadastrar_clientes
 from db.query import sqlite_db
 
 
+# Executavel e botões
 class cadastrarclientes(QDialog):
     def __init__(self, *args, **argvs):
         super(cadastrarclientes, self).__init__(*args, **argvs)
@@ -22,9 +24,9 @@ class cadastrarclientes(QDialog):
         self.ui.btn_pesquisar_clientes.clicked.connect(self.pesquisar)
         self.ui.btn_excluir_clientes.clicked.connect(self.excluir_clientes)
         self.carregadados_clientes()
-        self.setWindowIcon(QIcon('Img/logo.png'))
 
 
+# Botão de adicionar dados no banco
     def add(self):
         db = sqlite_db("clientes.db")
 
@@ -44,10 +46,12 @@ class cadastrarclientes(QDialog):
             QMessageBox.information(QMessageBox(), "AVISO", f"DADOS GRAVADOS COM SUCESSO!")
 
 
+# Botão de cancelar
     def can(self):
         self.close()
 
 
+# Botão de limpar
     def limpa(self):
         self.ui.nome_cliente.setText("")
         self.ui.cpf_cliente.setText("")
@@ -58,11 +62,13 @@ class cadastrarclientes(QDialog):
         self.ui.nascimento.setDate(QDate.currentDate())  
 
 
+# Botão de atualizar
     def on_refresh_click(self, event):
         if event.button() == Qt.LeftButton:
             self.carregadados_clientes()
 
 
+# Botão de pesquisar
     def pesquisar(self):
         db = sqlite_db("clientes.db")
         valor_consulta =""
@@ -81,11 +87,11 @@ class cadastrarclientes(QDialog):
                     self.ui.tableWidget.setItem(idxLinha, idxColuna, QTableWidgetItem(str(coluna)))        
 
 
+# Botão de excluir
     def excluir_clientes(self):
         try:
             db = sqlite_db("clientes.db")
             id = self.pegar_dados_da_tabela()
-            print(id)
             db.inserir_apagar_atualizar("DELETE FROM clientes WHERE id='{}'".format(id))
             QMessageBox.information(QMessageBox(), "AVISO!", f"Dados excluídos!")
             self.carregadados_clientes()
@@ -93,15 +99,18 @@ class cadastrarclientes(QDialog):
             QMessageBox.warning(QMessageBox(), "AVISO", f"Não foi possível excluir dados!")
 
 
+# Função de pegar dados do banco
     def pegar_dados_do_banco(self):
         return self.ui.tableWidget.currentRow()
 
 
+# Função de pegar dados da tabela
     def pegar_dados_da_tabela(self):
         valor = self.ui.tableWidget.item(self.pegar_dados_do_banco(), 0)
         return valor.text()
 
 
+# Função mostrar dados na tabela
     def carregadados_clientes(self):
         db = sqlite_db("clientes.db")
         lista = db.pegar_dados("SELECT * FROM clientes")
