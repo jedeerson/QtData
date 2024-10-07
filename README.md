@@ -8,6 +8,6 @@ O projeto em questão, está em andamento mas é um software para controle CRUD 
 
 - [x] Python
 - [x] PyQt 5
-- [x] PostgreSQL
+- [x] SQLite
 
 
