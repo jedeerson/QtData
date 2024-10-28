@@ -1,22 +1,35 @@
-# Rubber
-Trata-se de um sistema de cadastro.
+# QtData
+Trata-se de um sistema de CRUD (Create, Read, Update, Delete) desenvolvido com Python, PyQt5 para a interface gráfica e SQLite como banco de dados local.
 
 ## Introdução
-O projeto em questão, é um software para controle CRUD de chamados internos. Para rodar o projeto em sua máquina, deverá conter os seguintes requisitos:
+O projeto é um sistema CRUD para manipulação de dados de usuários, incluindo cadastro, edição, exclusão e visualização. Para rodar o projeto em sua máquina, você precisará de:
 ```bash
-- PyQT5
+- Python 3.*
 ```
 ```bash
-- SQLite 
+- Bibliotecas PyQt5
 ```
 ```bash
-- Python
+- SQLite3
 ```
 
-## Tecnologias e Conceitos Utilizando
+## Instalação
+Após clonar o projeto, instale as dependências necessárias com:
+```bash
+pip install pyqt5
+```
 
-- [x] Python
-- [x] PyQt 5
-- [x] SQLite
+## Usabilidade
+Para iniciar a aplicação, execute o comando:
+```bash
+python main.py
+```
+A interface gráfica da aplicação abrirá, permitindo a manipulação dos dados através de uma interface amigável.
+
+## Tecnologias e Conceitos Utilizados
+Este projeto utiliza as seguintes tecnologias e conceitos:
+- [x] Python e SQLite para a lógica de negócio e armazenamento de dados
+- [x] PyQt5 para a interface gráfica
+- [x] Padrões de Design para garantir uma interface intuitiva e responsiva
 
 
